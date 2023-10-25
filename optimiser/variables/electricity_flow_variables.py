@@ -13,7 +13,7 @@ class RenewableElectricityFlowVariables:
     """
 
     @classmethod
-    def get_renewable_electricity_to_house(cls, time_slices: float) -> pl.LpVariable:
+    def get_renewable_electricity_to_house(cls, time_slices: range) -> pl.LpVariable:
         """
         Method that returns the renewable electricity to house variable.
         :param time_slices:
@@ -27,7 +27,7 @@ class RenewableElectricityFlowVariables:
         )
 
     @classmethod
-    def get_renewable_electricity_to_battery(cls, time_slices: float) -> pl.LpVariable:
+    def get_renewable_electricity_to_battery(cls, time_slices: range) -> pl.LpVariable:
         """
         Method that returns the renewable electricity to battery variable.
         :param time_slices:
@@ -41,7 +41,7 @@ class RenewableElectricityFlowVariables:
         )
 
     @classmethod
-    def get_total_renewable_generation(cls, time_slices: float) -> pl.LpVariable:
+    def get_total_renewable_generation(cls, time_slices: range) -> pl.LpVariable:
         """
         Method that returns the total renewable generation variable.
         :param time_slices:
