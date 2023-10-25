@@ -13,7 +13,7 @@ class BatteryStateOfChargeVariables:
     """
 
     @classmethod
-    def get_battery_state_of_charge_variables(cls, time_slices: range):
+    def get_battery_state_of_charge(cls, time_slices: range):
         """
         Method that returns the battery state of charge variables.
         :param time_slices:
@@ -30,7 +30,7 @@ class BatteryStateOfChargeVariables:
         }
 
     @classmethod
-    def get_battery_degradation_variables(cls, time_slices: range):
+    def get_battery_degradation(cls, time_slices: range):
         """
         Method that returns the battery degradation variables.
         :param time_slices:
