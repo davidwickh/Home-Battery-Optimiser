@@ -5,3 +5,6 @@ pytest-cov
 black
 mypy
 pre-commit
+# stubs
+numpy-stubs
+pulp-stubs
