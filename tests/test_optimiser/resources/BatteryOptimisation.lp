@@ -87,53 +87,53 @@ Battery_charge_rate_7: electricity_to_battery_{t}_7 <= 2.5
 Battery_charge_rate_8: electricity_to_battery_{t}_8 <= 2.5
 Battery_charge_rate_9: electricity_to_battery_{t}_9 <= 2.5
 Battery_discharge_rate_1: battery_electricity_to_grid_{t}_1
- + battery_electricity_to_house_{t}_1 <= 2.5
+ + battery_electricity_to_house_{time_slices}_1 <= 2.5
 Battery_discharge_rate_10: battery_electricity_to_grid_{t}_10
- + battery_electricity_to_house_{t}_10 <= 2.5
+ + battery_electricity_to_house_{time_slices}_10 <= 2.5
 Battery_discharge_rate_11: battery_electricity_to_grid_{t}_11
- + battery_electricity_to_house_{t}_11 <= 2.5
+ + battery_electricity_to_house_{time_slices}_11 <= 2.5
 Battery_discharge_rate_12: battery_electricity_to_grid_{t}_12
- + battery_electricity_to_house_{t}_12 <= 2.5
+ + battery_electricity_to_house_{time_slices}_12 <= 2.5
 Battery_discharge_rate_13: battery_electricity_to_grid_{t}_13
- + battery_electricity_to_house_{t}_13 <= 2.5
+ + battery_electricity_to_house_{time_slices}_13 <= 2.5
 Battery_discharge_rate_14: battery_electricity_to_grid_{t}_14
- + battery_electricity_to_house_{t}_14 <= 2.5
+ + battery_electricity_to_house_{time_slices}_14 <= 2.5
 Battery_discharge_rate_15: battery_electricity_to_grid_{t}_15
- + battery_electricity_to_house_{t}_15 <= 2.5
+ + battery_electricity_to_house_{time_slices}_15 <= 2.5
 Battery_discharge_rate_16: battery_electricity_to_grid_{t}_16
- + battery_electricity_to_house_{t}_16 <= 2.5
+ + battery_electricity_to_house_{time_slices}_16 <= 2.5
 Battery_discharge_rate_17: battery_electricity_to_grid_{t}_17
- + battery_electricity_to_house_{t}_17 <= 2.5
+ + battery_electricity_to_house_{time_slices}_17 <= 2.5
 Battery_discharge_rate_18: battery_electricity_to_grid_{t}_18
- + battery_electricity_to_house_{t}_18 <= 2.5
+ + battery_electricity_to_house_{time_slices}_18 <= 2.5
 Battery_discharge_rate_19: battery_electricity_to_grid_{t}_19
- + battery_electricity_to_house_{t}_19 <= 2.5
+ + battery_electricity_to_house_{time_slices}_19 <= 2.5
 Battery_discharge_rate_2: battery_electricity_to_grid_{t}_2
- + battery_electricity_to_house_{t}_2 <= 2.5
+ + battery_electricity_to_house_{time_slices}_2 <= 2.5
 Battery_discharge_rate_20: battery_electricity_to_grid_{t}_20
- + battery_electricity_to_house_{t}_20 <= 2.5
+ + battery_electricity_to_house_{time_slices}_20 <= 2.5
 Battery_discharge_rate_21: battery_electricity_to_grid_{t}_21
- + battery_electricity_to_house_{t}_21 <= 2.5
+ + battery_electricity_to_house_{time_slices}_21 <= 2.5
 Battery_discharge_rate_22: battery_electricity_to_grid_{t}_22
- + battery_electricity_to_house_{t}_22 <= 2.5
+ + battery_electricity_to_house_{time_slices}_22 <= 2.5
 Battery_discharge_rate_23: battery_electricity_to_grid_{t}_23
- + battery_electricity_to_house_{t}_23 <= 2.5
+ + battery_electricity_to_house_{time_slices}_23 <= 2.5
 Battery_discharge_rate_24: battery_electricity_to_grid_{t}_24
- + battery_electricity_to_house_{t}_24 <= 2.5
+ + battery_electricity_to_house_{time_slices}_24 <= 2.5
 Battery_discharge_rate_3: battery_electricity_to_grid_{t}_3
- + battery_electricity_to_house_{t}_3 <= 2.5
+ + battery_electricity_to_house_{time_slices}_3 <= 2.5
 Battery_discharge_rate_4: battery_electricity_to_grid_{t}_4
- + battery_electricity_to_house_{t}_4 <= 2.5
+ + battery_electricity_to_house_{time_slices}_4 <= 2.5
 Battery_discharge_rate_5: battery_electricity_to_grid_{t}_5
- + battery_electricity_to_house_{t}_5 <= 2.5
+ + battery_electricity_to_house_{time_slices}_5 <= 2.5
 Battery_discharge_rate_6: battery_electricity_to_grid_{t}_6
- + battery_electricity_to_house_{t}_6 <= 2.5
+ + battery_electricity_to_house_{time_slices}_6 <= 2.5
 Battery_discharge_rate_7: battery_electricity_to_grid_{t}_7
- + battery_electricity_to_house_{t}_7 <= 2.5
+ + battery_electricity_to_house_{time_slices}_7 <= 2.5
 Battery_discharge_rate_8: battery_electricity_to_grid_{t}_8
- + battery_electricity_to_house_{t}_8 <= 2.5
+ + battery_electricity_to_house_{time_slices}_8 <= 2.5
 Battery_discharge_rate_9: battery_electricity_to_grid_{t}_9
- + battery_electricity_to_house_{t}_9 <= 2.5
+ + battery_electricity_to_house_{time_slices}_9 <= 2.5
 Battery_electricity_costs_1: - battery_electricity_costs_{t}_1 = 0
 Battery_electricity_costs_10: - battery_electricity_costs_{t}_10 = 0
 Battery_electricity_costs_11: - battery_electricity_costs_{t}_11 = 0
@@ -184,95 +184,118 @@ Battery_minimum_state_of_charge_8: battery_state_of_charge_{t}_8 >= 0
 Battery_minimum_state_of_charge_9: battery_state_of_charge_{t}_9 >= 0
 Battery_state_of_charge_1: battery_state_of_charge_{t}_1 = 0
 Battery_state_of_charge_10: - battery_degradation_{t}_10
- - battery_electricity_to_grid_{t}_10 - battery_electricity_to_house_{t}_10
+ - battery_electricity_to_grid_{t}_10
+ - battery_electricity_to_house_{time_slices}_10
  - battery_state_of_charge_{t}_10 + battery_state_of_charge_{t}_9
  + electricity_to_battery_{t}_10 = 0
 Battery_state_of_charge_11: - battery_degradation_{t}_11
- - battery_electricity_to_grid_{t}_11 - battery_electricity_to_house_{t}_11
+ - battery_electricity_to_grid_{t}_11
+ - battery_electricity_to_house_{time_slices}_11
  + battery_state_of_charge_{t}_10 - battery_state_of_charge_{t}_11
  + electricity_to_battery_{t}_11 = 0
 Battery_state_of_charge_12: - battery_degradation_{t}_12
- - battery_electricity_to_grid_{t}_12 - battery_electricity_to_house_{t}_12
+ - battery_electricity_to_grid_{t}_12
+ - battery_electricity_to_house_{time_slices}_12
  + battery_state_of_charge_{t}_11 - battery_state_of_charge_{t}_12
  + electricity_to_battery_{t}_12 = 0
 Battery_state_of_charge_13: - battery_degradation_{t}_13
- - battery_electricity_to_grid_{t}_13 - battery_electricity_to_house_{t}_13
+ - battery_electricity_to_grid_{t}_13
+ - battery_electricity_to_house_{time_slices}_13
  + battery_state_of_charge_{t}_12 - battery_state_of_charge_{t}_13
  + electricity_to_battery_{t}_13 = 0
 Battery_state_of_charge_14: - battery_degradation_{t}_14
- - battery_electricity_to_grid_{t}_14 - battery_electricity_to_house_{t}_14
+ - battery_electricity_to_grid_{t}_14
+ - battery_electricity_to_house_{time_slices}_14
  + battery_state_of_charge_{t}_13 - battery_state_of_charge_{t}_14
  + electricity_to_battery_{t}_14 = 0
 Battery_state_of_charge_15: - battery_degradation_{t}_15
- - battery_electricity_to_grid_{t}_15 - battery_electricity_to_house_{t}_15
+ - battery_electricity_to_grid_{t}_15
+ - battery_electricity_to_house_{time_slices}_15
  + battery_state_of_charge_{t}_14 - battery_state_of_charge_{t}_15
  + electricity_to_battery_{t}_15 = 0
 Battery_state_of_charge_16: - battery_degradation_{t}_16
- - battery_electricity_to_grid_{t}_16 - battery_electricity_to_house_{t}_16
+ - battery_electricity_to_grid_{t}_16
+ - battery_electricity_to_house_{time_slices}_16
  + battery_state_of_charge_{t}_15 - battery_state_of_charge_{t}_16
  + electricity_to_battery_{t}_16 = 0
 Battery_state_of_charge_17: - battery_degradation_{t}_17
- - battery_electricity_to_grid_{t}_17 - battery_electricity_to_house_{t}_17
+ - battery_electricity_to_grid_{t}_17
+ - battery_electricity_to_house_{time_slices}_17
  + battery_state_of_charge_{t}_16 - battery_state_of_charge_{t}_17
  + electricity_to_battery_{t}_17 = 0
 Battery_state_of_charge_18: - battery_degradation_{t}_18
- - battery_electricity_to_grid_{t}_18 - battery_electricity_to_house_{t}_18
+ - battery_electricity_to_grid_{t}_18
+ - battery_electricity_to_house_{time_slices}_18
  + battery_state_of_charge_{t}_17 - battery_state_of_charge_{t}_18
  + electricity_to_battery_{t}_18 = 0
 Battery_state_of_charge_19: - battery_degradation_{t}_19
- - battery_electricity_to_grid_{t}_19 - battery_electricity_to_house_{t}_19
+ - battery_electricity_to_grid_{t}_19
+ - battery_electricity_to_house_{time_slices}_19
  + battery_state_of_charge_{t}_18 - battery_state_of_charge_{t}_19
  + electricity_to_battery_{t}_19 = 0
 Battery_state_of_charge_2: - battery_degradation_{t}_2
- - battery_electricity_to_grid_{t}_2 - battery_electricity_to_house_{t}_2
+ - battery_electricity_to_grid_{t}_2
+ - battery_electricity_to_house_{time_slices}_2
  + battery_state_of_charge_{t}_1 - battery_state_of_charge_{t}_2
  + electricity_to_battery_{t}_2 = 0
 Battery_state_of_charge_20: - battery_degradation_{t}_20
- - battery_electricity_to_grid_{t}_20 - battery_electricity_to_house_{t}_20
+ - battery_electricity_to_grid_{t}_20
+ - battery_electricity_to_house_{time_slices}_20
  + battery_state_of_charge_{t}_19 - battery_state_of_charge_{t}_20
  + electricity_to_battery_{t}_20 = 0
 Battery_state_of_charge_21: - battery_degradation_{t}_21
- - battery_electricity_to_grid_{t}_21 - battery_electricity_to_house_{t}_21
+ - battery_electricity_to_grid_{t}_21
+ - battery_electricity_to_house_{time_slices}_21
  + battery_state_of_charge_{t}_20 - battery_state_of_charge_{t}_21
  + electricity_to_battery_{t}_21 = 0
 Battery_state_of_charge_22: - battery_degradation_{t}_22
- - battery_electricity_to_grid_{t}_22 - battery_electricity_to_house_{t}_22
+ - battery_electricity_to_grid_{t}_22
+ - battery_electricity_to_house_{time_slices}_22
  + battery_state_of_charge_{t}_21 - battery_state_of_charge_{t}_22
  + electricity_to_battery_{t}_22 = 0
 Battery_state_of_charge_23: - battery_degradation_{t}_23
- - battery_electricity_to_grid_{t}_23 - battery_electricity_to_house_{t}_23
+ - battery_electricity_to_grid_{t}_23
+ - battery_electricity_to_house_{time_slices}_23
  + battery_state_of_charge_{t}_22 - battery_state_of_charge_{t}_23
  + electricity_to_battery_{t}_23 = 0
 Battery_state_of_charge_24: - battery_degradation_{t}_24
- - battery_electricity_to_grid_{t}_24 - battery_electricity_to_house_{t}_24
+ - battery_electricity_to_grid_{t}_24
+ - battery_electricity_to_house_{time_slices}_24
  + battery_state_of_charge_{t}_23 - battery_state_of_charge_{t}_24
  + electricity_to_battery_{t}_24 = 0
 Battery_state_of_charge_3: - battery_degradation_{t}_3
- - battery_electricity_to_grid_{t}_3 - battery_electricity_to_house_{t}_3
+ - battery_electricity_to_grid_{t}_3
+ - battery_electricity_to_house_{time_slices}_3
  + battery_state_of_charge_{t}_2 - battery_state_of_charge_{t}_3
  + electricity_to_battery_{t}_3 = 0
 Battery_state_of_charge_4: - battery_degradation_{t}_4
- - battery_electricity_to_grid_{t}_4 - battery_electricity_to_house_{t}_4
+ - battery_electricity_to_grid_{t}_4
+ - battery_electricity_to_house_{time_slices}_4
  + battery_state_of_charge_{t}_3 - battery_state_of_charge_{t}_4
  + electricity_to_battery_{t}_4 = 0
 Battery_state_of_charge_5: - battery_degradation_{t}_5
- - battery_electricity_to_grid_{t}_5 - battery_electricity_to_house_{t}_5
+ - battery_electricity_to_grid_{t}_5
+ - battery_electricity_to_house_{time_slices}_5
  + battery_state_of_charge_{t}_4 - battery_state_of_charge_{t}_5
  + electricity_to_battery_{t}_5 = 0
 Battery_state_of_charge_6: - battery_degradation_{t}_6
- - battery_electricity_to_grid_{t}_6 - battery_electricity_to_house_{t}_6
+ - battery_electricity_to_grid_{t}_6
+ - battery_electricity_to_house_{time_slices}_6
  + battery_state_of_charge_{t}_5 - battery_state_of_charge_{t}_6
  + electricity_to_battery_{t}_6 = 0
 Battery_state_of_charge_7: - battery_degradation_{t}_7
- - battery_electricity_to_grid_{t}_7 - battery_electricity_to_house_{t}_7
+ - battery_electricity_to_grid_{t}_7
+ - battery_electricity_to_house_{time_slices}_7
  + battery_state_of_charge_{t}_6 - battery_state_of_charge_{t}_7
  + electricity_to_battery_{t}_7 = 0
 Battery_state_of_charge_8: - battery_degradation_{t}_8
- - battery_electricity_to_grid_{t}_8 - battery_electricity_to_house_{t}_8
+ - battery_electricity_to_grid_{t}_8
+ - battery_electricity_to_house_{time_slices}_8
  + battery_state_of_charge_{t}_7 - battery_state_of_charge_{t}_8
  + electricity_to_battery_{t}_8 = 0
 Battery_state_of_charge_9: - battery_degradation_{t}_9
- - battery_electricity_to_grid_{t}_9 - battery_electricity_to_house_{t}_9
+ - battery_electricity_to_grid_{t}_9
+ - battery_electricity_to_house_{time_slices}_9
  + battery_state_of_charge_{t}_8 - battery_state_of_charge_{t}_9
  + electricity_to_battery_{t}_9 = 0
 Battery_to_grid_sales_1: - 0.9 battery_to_grid_sales_{t}_1 = 0
@@ -299,69 +322,78 @@ Battery_to_grid_sales_6: - 0.9 battery_to_grid_sales_{t}_6 = 0
 Battery_to_grid_sales_7: - 0.9 battery_to_grid_sales_{t}_7 = 0
 Battery_to_grid_sales_8: - 0.9 battery_to_grid_sales_{t}_8 = 0
 Battery_to_grid_sales_9: - 0.9 battery_to_grid_sales_{t}_9 = 0
-Demand_1: battery_electricity_to_house_{t}_1 + grid_electricity_to_house_{t}_1
- + renewable_electricity_to_house_{t}_1 = 100
-Demand_10: battery_electricity_to_house_{t}_10
+Demand_1: battery_electricity_to_house_{time_slices}_1
+ + grid_electricity_to_house_{t}_1 + renewable_electricity_to_house_{t}_1
+ = 100
+Demand_10: battery_electricity_to_house_{time_slices}_10
  + grid_electricity_to_house_{t}_10 + renewable_electricity_to_house_{t}_10
  = 100
-Demand_11: battery_electricity_to_house_{t}_11
+Demand_11: battery_electricity_to_house_{time_slices}_11
  + grid_electricity_to_house_{t}_11 + renewable_electricity_to_house_{t}_11
  = 100
-Demand_12: battery_electricity_to_house_{t}_12
+Demand_12: battery_electricity_to_house_{time_slices}_12
  + grid_electricity_to_house_{t}_12 + renewable_electricity_to_house_{t}_12
  = 100
-Demand_13: battery_electricity_to_house_{t}_13
+Demand_13: battery_electricity_to_house_{time_slices}_13
  + grid_electricity_to_house_{t}_13 + renewable_electricity_to_house_{t}_13
  = 100
-Demand_14: battery_electricity_to_house_{t}_14
+Demand_14: battery_electricity_to_house_{time_slices}_14
  + grid_electricity_to_house_{t}_14 + renewable_electricity_to_house_{t}_14
  = 100
-Demand_15: battery_electricity_to_house_{t}_15
+Demand_15: battery_electricity_to_house_{time_slices}_15
  + grid_electricity_to_house_{t}_15 + renewable_electricity_to_house_{t}_15
  = 100
-Demand_16: battery_electricity_to_house_{t}_16
+Demand_16: battery_electricity_to_house_{time_slices}_16
  + grid_electricity_to_house_{t}_16 + renewable_electricity_to_house_{t}_16
  = 100
-Demand_17: battery_electricity_to_house_{t}_17
+Demand_17: battery_electricity_to_house_{time_slices}_17
  + grid_electricity_to_house_{t}_17 + renewable_electricity_to_house_{t}_17
  = 100
-Demand_18: battery_electricity_to_house_{t}_18
+Demand_18: battery_electricity_to_house_{time_slices}_18
  + grid_electricity_to_house_{t}_18 + renewable_electricity_to_house_{t}_18
  = 100
-Demand_19: battery_electricity_to_house_{t}_19
+Demand_19: battery_electricity_to_house_{time_slices}_19
  + grid_electricity_to_house_{t}_19 + renewable_electricity_to_house_{t}_19
  = 100
-Demand_2: battery_electricity_to_house_{t}_2 + grid_electricity_to_house_{t}_2
- + renewable_electricity_to_house_{t}_2 = 100
-Demand_20: battery_electricity_to_house_{t}_20
+Demand_2: battery_electricity_to_house_{time_slices}_2
+ + grid_electricity_to_house_{t}_2 + renewable_electricity_to_house_{t}_2
+ = 100
+Demand_20: battery_electricity_to_house_{time_slices}_20
  + grid_electricity_to_house_{t}_20 + renewable_electricity_to_house_{t}_20
  = 100
-Demand_21: battery_electricity_to_house_{t}_21
+Demand_21: battery_electricity_to_house_{time_slices}_21
  + grid_electricity_to_house_{t}_21 + renewable_electricity_to_house_{t}_21
  = 100
-Demand_22: battery_electricity_to_house_{t}_22
+Demand_22: battery_electricity_to_house_{time_slices}_22
  + grid_electricity_to_house_{t}_22 + renewable_electricity_to_house_{t}_22
  = 100
-Demand_23: battery_electricity_to_house_{t}_23
+Demand_23: battery_electricity_to_house_{time_slices}_23
  + grid_electricity_to_house_{t}_23 + renewable_electricity_to_house_{t}_23
  = 100
-Demand_24: battery_electricity_to_house_{t}_24
+Demand_24: battery_electricity_to_house_{time_slices}_24
  + grid_electricity_to_house_{t}_24 + renewable_electricity_to_house_{t}_24
  = 100
-Demand_3: battery_electricity_to_house_{t}_3 + grid_electricity_to_house_{t}_3
- + renewable_electricity_to_house_{t}_3 = 100
-Demand_4: battery_electricity_to_house_{t}_4 + grid_electricity_to_house_{t}_4
- + renewable_electricity_to_house_{t}_4 = 100
-Demand_5: battery_electricity_to_house_{t}_5 + grid_electricity_to_house_{t}_5
- + renewable_electricity_to_house_{t}_5 = 100
-Demand_6: battery_electricity_to_house_{t}_6 + grid_electricity_to_house_{t}_6
- + renewable_electricity_to_house_{t}_6 = 100
-Demand_7: battery_electricity_to_house_{t}_7 + grid_electricity_to_house_{t}_7
- + renewable_electricity_to_house_{t}_7 = 100
-Demand_8: battery_electricity_to_house_{t}_8 + grid_electricity_to_house_{t}_8
- + renewable_electricity_to_house_{t}_8 = 100
-Demand_9: battery_electricity_to_house_{t}_9 + grid_electricity_to_house_{t}_9
- + renewable_electricity_to_house_{t}_9 = 100
+Demand_3: battery_electricity_to_house_{time_slices}_3
+ + grid_electricity_to_house_{t}_3 + renewable_electricity_to_house_{t}_3
+ = 100
+Demand_4: battery_electricity_to_house_{time_slices}_4
+ + grid_electricity_to_house_{t}_4 + renewable_electricity_to_house_{t}_4
+ = 100
+Demand_5: battery_electricity_to_house_{time_slices}_5
+ + grid_electricity_to_house_{t}_5 + renewable_electricity_to_house_{t}_5
+ = 100
+Demand_6: battery_electricity_to_house_{time_slices}_6
+ + grid_electricity_to_house_{t}_6 + renewable_electricity_to_house_{t}_6
+ = 100
+Demand_7: battery_electricity_to_house_{time_slices}_7
+ + grid_electricity_to_house_{t}_7 + renewable_electricity_to_house_{t}_7
+ = 100
+Demand_8: battery_electricity_to_house_{time_slices}_8
+ + grid_electricity_to_house_{t}_8 + renewable_electricity_to_house_{t}_8
+ = 100
+Demand_9: battery_electricity_to_house_{time_slices}_9
+ + grid_electricity_to_house_{t}_9 + renewable_electricity_to_house_{t}_9
+ = 100
 Electricity_flow_constraint_1: - battery_electricity_to_grid_{t}_1
  - electricity_to_battery_{t}_1 + grid_electricity_to_battery_{t}_1
  + renewable_electricity_to_battery_{t}_1 = 0

@@ -3,6 +3,7 @@ Main file for the optimisation problem
 """
 # pylint: disable=import-error, too-many-locals, too-many-statements, consider-using-generator, unused-variable
 import pulp as pl  # type: ignore
+from optimiser.constants import OptimiserConstants
 
 
 def main():
@@ -15,22 +16,6 @@ def main():
 
     # Time slices
     time_slices = range(1, 25)
-
-    timeslice_size = 0.5
-
-    # Renewable Generation Constants
-    max_renewable_generation = 10  # kWh
-
-    # Battery Constants
-    max_battery_discharge_rate = 5
-    max_battery_charge_rate = 5
-    max_battery_cap = 100
-
-    # Costs Constants
-    unit_price_grid_electricity = 0.3
-    unit_price_battery_electricity = 0
-    unit_price_renewable_electricity = 0
-    unit_price_battery_sale_price = 0.1
 
     demand = {}
     for _t in time_slices:
@@ -161,8 +146,10 @@ def main():
         ) - total_renewable_generation[_t] == 0, f"Total renewable generation {_t}"
 
         problem += (
-            total_renewable_generation[_t]
-        ) <= max_renewable_generation, f"Maximum renewable generation {_t}"
+            (total_renewable_generation[_t])
+            <= OptimiserConstants.max_renewable_generation,
+            f"Maximum renewable generation {_t}",
+        )
 
         # Battery constraints
         # At the start of the model the battery is empty
@@ -180,19 +167,22 @@ def main():
         # Rate of electricity leaving the battery cannot exceed the maximum discharge rate
         problem += (
             (battery_electricity_to_house[_t] + battery_electricity_to_grid[_t])
-            <= max_battery_discharge_rate * timeslice_size,
+            <= OptimiserConstants.max_battery_discharge_rate
+            * OptimiserConstants.timeslice_size,
             f"Battery discharge rate {_t}",
         )
 
         # Rate of electricity entering the battery cannot exceed the maximum charge rate
         problem += (
-            electricity_to_battery[_t] <= max_battery_charge_rate * timeslice_size,
+            electricity_to_battery[_t]
+            <= OptimiserConstants.max_battery_charge_rate
+            * OptimiserConstants.timeslice_size,
             f"Battery charge rate {_t}",
         )
 
         # The battery cannot exceed its maximum capacity
         problem += (
-            battery_state_of_charge[_t] <= max_battery_cap,
+            battery_state_of_charge[_t] <= OptimiserConstants.max_battery_cap,
             f"Battery capacity {_t}",
         )
 
@@ -205,16 +195,18 @@ def main():
         # Financial constraints
         problem += (
             (grid_electricity_to_house[_t] + grid_electricity_to_battery[_t])
-            * unit_price_grid_electricity
+            * OptimiserConstants.unit_price_grid_electricity
         ) - grid_electricity_costs[_t] == 0, f"Grid electricity costs {_t}"
         problem += (
-            battery_electricity_to_house[_t] * unit_price_battery_electricity
+            battery_electricity_to_house[_t]
+            * OptimiserConstants.unit_price_battery_electricity
         ) - battery_electricity_costs[_t] == 0, f"Battery electricity costs {_t}"
         problem += (
-            renewable_electricity_to_house[_t] * unit_price_renewable_electricity
+            renewable_electricity_to_house[_t]
+            * OptimiserConstants.unit_price_renewable_electricity
         ) - renewable_eletricity_costs[_t] == 0, f"Renewable electricity costs {_t}"
         problem += (
-            battery_to_grid_sales[_t] * unit_price_battery_sale_price
+            battery_to_grid_sales[_t] * OptimiserConstants.unit_price_battery_sale_price
         ) - battery_to_grid_sales[_t] == 0, f"Battery to grid sales {_t}"
 
     problem.writeLP("BatteryOptimisation.lp")
