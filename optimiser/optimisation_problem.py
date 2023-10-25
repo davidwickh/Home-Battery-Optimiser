@@ -63,6 +63,7 @@ class Optimiser:
             + pl.lpSum(
                 FuelCostVariables.get_renewable_electricity_costs(cls.time_slices)
             )
+            - pl.lpSum(FuelCostVariables.get_battery_to_grid_sales(cls.time_slices))
         ), "Objective - minimise fuel costs"
 
     @classmethod
