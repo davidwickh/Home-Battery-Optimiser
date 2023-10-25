@@ -2,8 +2,7 @@
 Main file for the optimisation problem
 """
 # pylint: disable=import-error, too-many-locals, too-many-statements, consider-using-generator, unused-variable
-import pulp as pl
-from pulp import LpVariable
+import pulp as pl  # type: ignore
 
 
 def main():
@@ -39,19 +38,19 @@ def main():
 
     # ---- Define variables ----
     # Renewable electricity flow
-    renewable_electricity_to_house = LpVariable.dicts(
+    renewable_electricity_to_house = pl.LpVariable.dicts(
         name="renewable_electricity_to_house_{t}",
         indices=time_slices,
         lowBound=0,
         cat="Continuous",
     )
-    renewable_electricity_to_battery = LpVariable.dicts(
+    renewable_electricity_to_battery = pl.LpVariable.dicts(
         name="renewable_electricity_to_battery_{t}",
         indices=time_slices,
         lowBound=0,
         cat="Continuous",
     )
-    total_renewable_generation = LpVariable.dicts(
+    total_renewable_generation = pl.LpVariable.dicts(
         name="total_renewable_generation_{t}",
         indices=time_slices,
         lowBound=0,
@@ -59,19 +58,19 @@ def main():
     )
 
     # Battery electricity flow
-    battery_electricity_to_house = LpVariable.dicts(
+    battery_electricity_to_house = pl.LpVariable.dicts(
         name="battery_electricity_to_house_{time_slices}",
         indices=time_slices,
         lowBound=0,
         cat="Continuous",
     )
-    battery_electricity_to_grid = LpVariable.dicts(
+    battery_electricity_to_grid = pl.LpVariable.dicts(
         name="battery_electricity_to_grid_{t}",
         indices=time_slices,
         lowBound=0,
         cat="Continuous",
     )
-    electricity_to_battery = LpVariable.dicts(
+    electricity_to_battery = pl.LpVariable.dicts(
         name="electricity_to_battery_{t}",
         indices=time_slices,
         lowBound=0,
@@ -79,13 +78,13 @@ def main():
     )
 
     # Grid electricity flow
-    grid_electricity_to_house = LpVariable.dicts(
+    grid_electricity_to_house = pl.LpVariable.dicts(
         name="grid_electricity_to_house_{t}",
         indices=time_slices,
         lowBound=0,
         cat="Continuous",
     )
-    grid_electricity_to_battery = LpVariable.dicts(
+    grid_electricity_to_battery = pl.LpVariable.dicts(
         name="grid_electricity_to_battery_{t}",
         indices=time_slices,
         lowBound=0,
@@ -93,41 +92,41 @@ def main():
     )
 
     # Fuel Costs
-    fuel_costs = LpVariable.dicts(
+    fuel_costs = pl.LpVariable.dicts(
         name="fuel_costs_{t}", indices=time_slices, lowBound=0, cat="Continuous"
     )
-    battery_electricity_costs = LpVariable.dicts(
+    battery_electricity_costs = pl.LpVariable.dicts(
         name="battery_electricity_costs_{t}",
         indices=time_slices,
         lowBound=0,
         cat="Continuous",
     )
-    grid_electricity_costs = LpVariable.dicts(
+    grid_electricity_costs = pl.LpVariable.dicts(
         name="grid_electricity_costs_{t}",
         indices=time_slices,
         lowBound=0,
         cat="Continuous",
     )
-    renewable_eletricity_costs = LpVariable.dicts(
+    renewable_eletricity_costs = pl.LpVariable.dicts(
         name="renewable_eletricity_costs_{t}",
         indices=time_slices,
         lowBound=0,
         cat="Continuous",
     )
-    battery_to_grid_sales = LpVariable.dicts(
+    battery_to_grid_sales = pl.LpVariable.dicts(
         name="battery_to_grid_sales_{t}",
         indices=time_slices,
         lowBound=0,
         cat="Continuous",
     )
     # Battery state of charge
-    battery_state_of_charge = LpVariable.dicts(
+    battery_state_of_charge = pl.LpVariable.dicts(
         name="battery_state_of_charge_{t}",
         indices=time_slices,
         lowBound=0,
         cat="Continuous",
     )
-    battery_degradation = LpVariable.dicts(
+    battery_degradation = pl.LpVariable.dicts(
         name="battery_degradation_{t}",
         indices=time_slices,
         lowBound=0,
