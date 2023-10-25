@@ -10,3 +10,11 @@ repos:
     rev: 22.10.0
     hooks:
     -   id: black
+-   repo: https://github.com/pre-commit/mirrors-mypy
+    rev: ''  # Use the sha / tag you want to point at
+    hooks:
+    -   id: mypy
+-   repo: https://github.com/pre-commit/mirrors-pylint
+    rev: ''  # Use the sha / tag you want to point at
+    hooks:
+    -   id: pylint
