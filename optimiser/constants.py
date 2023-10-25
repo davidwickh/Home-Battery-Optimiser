@@ -1,8 +1,8 @@
 """
 Module for constants used in the optimiser.
 """
-# pylint: disable=too-few-public-methods
-from aenum import Constant  # pylint: disable=import-error # type: ignore
+# pylint: disable=too-few-public-methods, import-error
+from aenum import Constant  # type: ignore
 
 
 class OptimiserConstants(Constant):
