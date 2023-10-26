@@ -24,6 +24,7 @@ $$
 & & & \eta_{t}^{discharge} \geq \eta_{t}^{discharge, min} \\
 & & & \forall t \in \{1, \dots, T\} \\
 \end{aligned}
+$$
 
 Where $Cost_{t}^{battery}$ is the unit cost of electricity from the battery, $Cost_{t}^{grid}$ is the unit cost of
 electricity from the grid, $Cost_{t}^{renewable}$ is the unit cost of electricity from renewable sources,
